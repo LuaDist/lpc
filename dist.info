@@ -1,0 +1,13 @@
+--- This file is part of LuaDist project
+
+name = "lpc"
+version = "1.0.0"
+
+desc = "Allows Lua scripts to call external processes while capturing both their input and output."
+license = "MIT/X11"
+url = "http://lua.net-core.org/sputnik.lua?p=Telesto:About"
+maintainer = "Peter Drahoš"
+
+depends = {
+	"lua ~> 5.1"
+}
