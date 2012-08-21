@@ -1,16 +1,13 @@
-# Copyright (C) 2007-2009 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Kapec
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(lpc C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+project ( lpc C )
+cmake_minimum_required ( VERSION 2.8 )
+include ( cmake/dist.cmake )
+include ( lua )
 
-# Build
-ADD_LUA_MODULE(lpc lpc.c)
-
-# Install all files and documentation
-INSTALL(TARGETS lpc DESTINATION ${INSTALL_CMOD})
-INSTALL(FILES COPYING DESTINATION ${INSTALL_DATA})
+install_lua_module ( lpc lpc.c )
+install_data ( COPYING )
