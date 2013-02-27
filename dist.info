@@ -1,0 +1,24 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "unknown"
+depends = {
+[[lua ~> 5.1]],
+}
+
+desc = "Allows Lua scripts to call external processes while capturing both their input and output."
+version = "1.0.0"
+maintainer = "Peter Drahoš"
+files = {
+Runtime = {
+[[lib/lua/lpc.so]],
+}
+,
+Data = {
+[[share/lpc/COPYING]],
+}
+,
+}
+
+license = "MIT/X11"
+name = "lpc"
+url = "http://lua.net-core.org/sputnik.lua?p=Telesto:About"
