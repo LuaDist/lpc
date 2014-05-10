@@ -1,16 +1,20 @@
-LUA_PREFIX = /usr/local/
-PREFIX	= /usr/local/
+LUA_PKGCONF ?= lua
+
 MODULE = lpc
 VERSION = 1.0.0
 
-INSTALL_PREFIX = $(PREFIX)/lib/lua/5.1/
+ifneq ($(shell pkg-config $(LUA_PKGCONF) || echo not-installed),)
+$(error $(LUA_PKGCONF).pc not found)
+endif
+
+INSTALL_PREFIX = $(DESTDIR)$(shell pkg-config $(LUA_PKGCONF) --variable=INSTALL_CMOD)
 
 CC	= gcc
 TARGET	= lpc.so
 OBJS	= lpc.o
 LIBS	=
-CFLAGS	= -I $(LUA_PREFIX)/include -fPIC
-LDFLAGS	= -shared -fPIC
+CFLAGS	= $(shell pkg-config $(LUA_PKGCONF) --cflags) -fPIC
+LDFLAGS	= $(shell pkg-config $(LUA_PKGCONF) --libs) -shared -fPIC
 
 default: $(TARGET)
 
